@@ -22,7 +22,7 @@ int main()
 
         int l(0), r(n-1);
         bool flag = 0;
-        while(l<=r)
+        while(l<r)
         { 
 
         int mid = (l+r)/2;
