@@ -160,6 +160,38 @@ Node * insert(Node * head, int n, int pos, int val) {
 
 }
 
+Node *addTwoNumbers(Node *num1, Node *num2)
+{
+    Node* temp1 = num1;
+    Node* temp2 = num2;
+
+    int cy(0);
+    Node* dummyNode = new Node(-1);
+    Node* curr = dummyNode;
+
+    while(temp1 != NULL || temp2 !=NULL){
+        
+        int sum = cy;
+        if(temp1) sum+=temp1->data;
+        if(temp2) sum+= temp2->data;
+
+        Node* nn = new Node(sum%10);
+        cy = sum/10;
+        curr->next = nn;
+        curr = curr->next;
+
+        if(temp1) temp1 = temp1->next;
+        if(temp2) temp2 = temp2->next;
+    }
+
+    if(cy){
+        Node* nn = new Node(cy);
+        curr->next = nn;
+    }
+
+    return dummyNode->next;
+}
+
 int main(){
   vector<int> arr = {1,2,3,4};
   Node* head = convertArr2LL(arr);
