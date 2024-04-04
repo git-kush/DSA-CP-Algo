@@ -160,6 +160,45 @@ Node * insert(Node * head, int n, int pos, int val) {
 
 }
 
+// Node* reverseLinkedList(Node *head)         //using stack
+// {              
+//     Node* temp = head;
+//     Node* temp2 = head;
+//     stack<int> st;
+
+//     while(temp->next != NULL){
+//         st.push(temp->data);
+//         temp = temp->next;
+//     }
+
+//     st.push(temp->data);
+    
+//     while(temp2 != 0 ){
+//         temp2->data = st.top();
+//         st.pop();
+//         temp2 = temp2->next;
+//     }
+
+//     return  head;
+    
+// }
+
+Node* reverseLinkedList(Node *head)
+{
+    Node* temp = head;
+    Node* prev = nullptr;
+
+    while(temp !=NULL){
+        Node* front = temp->next;
+        temp->next = prev;
+        prev = temp;
+        temp = front;
+    }
+
+    return prev;
+    
+}
+
 Node *addTwoNumbers(Node *num1, Node *num2)
 {
     Node* temp1 = num1;
